@@ -35,6 +35,7 @@ function Navbar() {
                         <li className='w-full bg-white/20 md:h-full hover:border-gray-800  rounded px-5 p-3 hover:bg-gray-200 md:hover:bg-inherit md:bg-inherit md:w-auto md:p-0 cursor-pointer md:shadow-none  shadow-sm md:hover:shadow-none hover:shadow-lg'><Link to={'/'}>Home</Link></li>
                         <li className='w-full bg-white/20 md:h-full hover:border-gray-800  rounded px-5 p-3 hover:bg-gray-200 md:hover:bg-inherit md:bg-inherit md:w-auto md:p-0 cursor-pointer md:shadow-none  shadow-sm md:hover:shadow-none hover:shadow-lg'><Link to={'/Search'}>Search</Link></li>
                         <li className='w-full bg-white/20 md:h-full hover:border-gray-800  rounded px-5 p-3 hover:bg-gray-200 md:hover:bg-inherit md:bg-inherit md:w-auto md:p-0 cursor-pointer md:shadow-none  shadow-sm md:hover:shadow-none hover:shadow-lg'><Link to={'/Settings'}>Settings</Link></li>
+                        <li className='w-full bg-white/20 md:h-full hover:border-gray-800  rounded px-5 p-3 hover:bg-gray-200 md:hover:bg-inherit md:bg-inherit md:w-auto md:p-0 cursor-pointer md:shadow-none  shadow-sm md:hover:shadow-none hover:shadow-lg'><Link to={'/login'} onClick={()=>window.localStorage.removeItem("token")}>logout</Link></li>
                     </ul>
                         <button onClick={()=>setDropdownOpen(!isDropdownOpen)} className=' bg-gray-400/50 hover:bg-gray-300 duration-200 w-[40px] h-[40px]  rounded-full  place-items-center justify-center flex md:hidden'>
                             <FiMenu className='w-[20px] h-[20px]'/>
