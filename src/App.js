@@ -8,6 +8,7 @@ import Home from './pages/home';
 import 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js'
 
 function App() {
+console.log("Hello World")
   return (
     <div className="">
       
