@@ -4,6 +4,8 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom/dist';
 import Register from './pages/register';
 import Login from './pages/login';
+import Home from './pages/home';
+import 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js'
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
 
         </Routes>
       </BrowserRouter>
