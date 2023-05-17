@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import logo from '../logo2.png';
 import axios from 'axios';
+import { AuthContext } from '../context/authContext';
 
 
 
@@ -11,7 +12,7 @@ function Login() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
+    const { login } = useContext(AuthContext);
 
     useEffect(()=> {
         if (localStorage.getItem('token')) {
@@ -32,7 +33,8 @@ function Login() {
                 email:email,
                 password:password,
             });
-            localStorage.setItem('token', response.data.token);
+            // localStorage.setItem('token', response.data.token);
+            login(null, response.data.token);
             navigate('/');
         } catch (err) {
             setError(err.response.data.message);

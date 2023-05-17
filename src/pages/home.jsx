@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Navbar from '../components/navbar'
-import { useNavigate } from 'react-router-dom'
+
+import { AuthContext } from '../context/authContext';
 
 function Home() {
-    const navigate = useNavigate()
-    useEffect(() =>{
-        if(!window.localStorage.getItem("token")){
-            navigate('/login');
-        }
-    },[])
+  const {token , user} = useContext(AuthContext);
+
   return (
-    <div className='bg-blue-200  min-h-screen'>
-        <Navbar />
+    <div className=''>
+        
     </div>
   )
 }
