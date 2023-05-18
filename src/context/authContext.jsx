@@ -7,6 +7,7 @@ export const AuthContext = React.createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(() => localStorage.getItem("token"));
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const login = (userData, authToken) => {
@@ -19,12 +20,12 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setToken(null);
     localStorage.removeItem("token");
-    navigate("/login");
   };
 
   const checkTokenValidity = async () => {
     try {
-      const res = await axios.get("http://localhost:3306/me", {
+      setLoading(true);
+      const res = await axios.get(process.env.REACT_APP_API_URL+"me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -34,6 +35,7 @@ export const AuthProvider = ({ children }) => {
       console.error("Error validating token:", error);
       logout();
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -47,6 +49,8 @@ export const AuthProvider = ({ children }) => {
     token,
     login,
     logout,
+    loading,
+    setLoading
   };
 
   return (

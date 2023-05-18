@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import logo from '../logo2.png';
+
 import axios from 'axios';
 import { AuthContext } from '../context/authContext';
 
@@ -10,15 +11,9 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
+    const { login,setLoading } = useContext(AuthContext);
 
-    useEffect(()=> {
-        if (localStorage.getItem('token')) {
-            navigate('/');
-        }
-    })
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,8 +37,8 @@ function Login() {
         setLoading(false);
     };
   return (
-    <div className="">
-      <div className="bg-blue-200  min-h-screen flex place-content-center place-items-center flex-col">
+      <div className="">
+      <div className="bg-blue-200 min-h-[100vh] flex place-content-center place-items-center flex-col">
         <img src={logo} className="" alt="logo" />
         
         <form className='w-full  md:w-2/3 xl:w-2/4 2xl:w-1/3 p-5 md:p-0' >
@@ -58,7 +53,7 @@ function Login() {
             {error && <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50/60 dark:bg-gray-800 dark:text-yellow-300" role="alert">
                 <span class="font-medium">Warning alert!</span> {error}.
             </div>}
-            <button type="button" onClick={handleSubmit} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <button type="button" onClick={handleSubmit} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">LOG IN</button>
         </form>
         
       </div>
