@@ -54,7 +54,7 @@ function Search() {
         <div className='syne'>
         {filteredData.map((user) => (
             <Link to={`/profile/${user.username}`} key={user._id} className="">
-          <div key={user._id} className="flex items-center my-4 bg-white hover:scale-105 duration-200 cursor-pointer p-4 rounded">
+          <div key={user._id} className="flex items-center my-4 bg-white hover:scale-105 duration-200 cursor-pointer p-2 rounded">
             
               <img
                 src={user?.profile || userImg}
