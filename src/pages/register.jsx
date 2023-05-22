@@ -11,7 +11,7 @@ function Register() {
     const [username, setUsername] = useState('');
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
-    const [fullName, setFullName] = useState(first_name + ' ' + setFirstName);
+    const [fullName, setFullName] = useState(first_name + ' ' + last_name);
     const [phone, setPhone] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
